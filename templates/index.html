@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerta Bairro | CitizenTech</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">AB</span><div><strong>Alerta Bairro</strong><small>Informação que protege a comunidade</small></div></div>
+    <span class="tag">PROTÓTIPO CITIZENTECH</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">CUIDADO COLETIVO · ODS 11 E 13</p>
+        <h1>O que acontece no seu bairro<br><span>importa para todos.</span></h1>
+        <p class="intro">Consulte as condições climáticas e acompanhe relatos comunitários de pontos de alagamento.</p>
+      </div>
+      <div class="weather-card">
+        <div class="weather-heading"><span>CLIMA AGORA</span><span class="live-dot"></span></div>
+        <div id="weather-value" class="weather-value">Consultando...</div>
+        <p id="weather-detail">São Paulo · Open-Meteo</p>
+        <small id="weather-note">O clima não confirma a existência de alagamentos.</small>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article><span>Ocorrências registradas</span><strong id="total-count">—</strong></article>
+      <article><span>Em aberto</span><strong id="open-count">—</strong></article>
+      <article><span>Gravidade alta</span><strong id="high-count">—</strong></article>
+    </section>
+
+    <section class="content-grid">
+      <section class="panel form-panel">
+        <div class="section-heading"><div><p class="eyebrow">PARTICIPE</p><h2>Registrar ocorrência</h2></div><span class="plus">+</span></div>
+        <form id="occurrence-form">
+          <label for="location">Local ou referência do bairro</label>
+          <input id="location" name="location" maxlength="120" placeholder="Ex.: Rua das Flores, próximo à praça" required>
+          <label for="description">O que está acontecendo?</label>
+          <textarea id="description" name="description" maxlength="500" rows="4" placeholder="Descreva o ponto de alagamento..." required></textarea>
+          <label for="severity">Gravidade percebida</label>
+          <select id="severity" name="severity" required>
+            <option value="baixa">Baixa</option><option value="moderada">Moderada</option><option value="alta">Alta</option>
+          </select>
+          <button type="submit" class="primary-button">Enviar ocorrência <span>→</span></button>
+          <p class="privacy-note">Não informe nomes, telefones, documentos ou outros dados pessoais.</p>
+          <p id="form-message" class="message" role="status"></p>
+        </form>
+      </section>
+
+      <section class="panel list-panel">
+        <div class="section-heading"><div><p class="eyebrow">COMUNIDADE</p><h2>Relatos recentes</h2></div><button id="refresh-button" class="text-button">Atualizar ↻</button></div>
+        <div id="occurrences-list" class="occurrences-list"><p class="muted">Carregando ocorrências...</p></div>
+      </section>
+    </section>
+    <p class="disclaimer">Projeto acadêmico. Os relatos são colaborativos e não substituem informações oficiais da Defesa Civil ou serviços de emergência.</p>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
