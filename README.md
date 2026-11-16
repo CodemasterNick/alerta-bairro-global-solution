@@ -45,6 +45,3 @@ Também há validação de tipo/tamanho, lista permitida de gravidade/status e m
 
 ## Testes e limitações
 Testar CRUD, JSON inválido, campos ausentes, valores não permitidos, ID inválido/inexistente, MongoDB desligado, API externa indisponível e TCP desligado. Limitações: relatos não verificados, sem autenticação/moderação e coordenadas climáticas fixas. Para produção seriam necessários autenticação, moderação, HTTPS e política de retenção.
-
-## Considerações Finais
-Este projeto foi feito com auxilio de inteligência artificial
